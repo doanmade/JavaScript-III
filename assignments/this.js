@@ -1,16 +1,16 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. 
-* 2. 
-* 3. 
-* 4. 
+* 1. Window Binding/ Globle 
+* 2. Implicit Binding
+* 3. New Binding
+* 4. Explicit Binding
 *
 * write out a code example of each explanation above
 */
 
 // Principle 1
-
+ 
 // code example for Window Binding
 
 function talk(hello) {
@@ -44,31 +44,33 @@ console.log(SuperBat.fight());
 
 // code example for New Binding
 
+
 function Enemy (weapon){
-    this.weapon = weapon;
-    this.attack = function() {
-       console.log(`Swings ${this.weapon}`);
-    }
-    
+  this.weapon = weapon;
+  this.attack = function() {
+     return `Swings ${this.weapon}`;
   }
   
-  const fireGiant = new Enemy('Burning Maul');
-  const stormSneak = new Enemy('Diamond Tail');
-  
-  fireGiant.attack();
-  stormSneak.attack();
+}
+
+const fireGiant = new Enemy('Burning Maul');
+const stormSneak = new Enemy('Diamond Tail');
+
+fireGiant.attack();
+stormSneak.attack();
+
+console.log(fireGiant.attack());
+console.log(stormSneak.attack());
 // Principle 4
 
 // code example for Explicit Binding
 
-// const josh = new cordiaPerson('kevin');
-// const kevin = new cordiaPerson('josh');
 
 const host = {
     name: "President Fire"
   }
   
-  const heroNames = ["SuperBat ", "GreenTourch ", "IronHulk "];
+  const heroNames = ["SuperBat", " GreenTourch", " IronHulk"];
     
   function battleIntro(hero) {
     return `Ladies and gents My name is ${this.name}, help me in welcoming our Heros!! we have ${hero}`;
